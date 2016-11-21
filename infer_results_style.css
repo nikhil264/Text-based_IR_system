@@ -1,0 +1,153 @@
+
+input[type=text] 
+{
+	position : absolute;
+	border: 1px solid #aaaaaa;
+	padding-left : 6px;
+	margin :0px;
+	top : 20%;
+	left : 2%;
+	width : 30%;
+	height : 50%;
+	line-height: 100%;
+	font-size: 70%;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+input[type=text]:focus
+{
+	outline:none;
+	border: 1px;
+}
+
+input[type="submit"] 
+{
+	position: absolute;
+    display: block;
+	left: 35%;
+    top:4%;
+    height: 50%;
+    line-height: 100%;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+        border-top-color: rgb(242, 242, 242);
+	    border-top-style: solid;
+	    border-top-width: 1px;
+	    border-right-color: rgb(242, 242, 242);
+	    border-right-style: solid;
+	    border-right-width: 1px;
+	    border-bottom-color: rgb(242, 242, 242);
+	    border-bottom-style: solid;
+	    border-bottom-width: 1px;
+	    border-left-color: rgb(242, 242, 242);
+	    border-left-style: solid;
+	    border-left-width: 1px;
+    border-radius: 2px;
+    color: #757575;
+    cursor: default;
+    padding: 2px 0px 2px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 11px 4px;
+    min-width: 9%;
+    padding: 0 16px;
+    text-align: center;
+    font-family: 'roboto light','Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+input[type=submit]:hover 
+{
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  	transition: .3s;
+}
+
+.header
+{
+	display:block;
+	width: 100%;
+	background-color: #5c5757;
+	position: relative;
+	height: 40px;
+	font-size: 200%;
+	padding: 15px 10px 5px 10px;
+	border-radius : 3px;
+}
+
+.card 
+{
+	display: block;
+	box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	width: 70%;
+	height: 50px; 
+	margin: 20px auto;
+	padding: 1px 10px 15px 20px;
+	background-color: #ee6e73;
+	border-radius : 3px;
+}
+.result
+{
+	display: inline;
+	font-size: 20px;
+}
+
+
+a
+{
+	text-decoration: none;
+	color: white;
+	font-size: 150%;
+}
+
+p.course_id
+{
+	display: inline-block;
+	width: 20%;
+}
+
+p.course_name
+{
+	display: inline-block;
+	position: relative;
+	left: 15%;
+}
+.direct_doc
+{
+	position: relative;
+	float: right;
+	right: 2%;
+	padding: 20px 0px 0px 0px;
+}
+
+.time
+{
+	font-size: 100%;
+	color: white;
+	position: absolute;
+	top:10px;
+	right:10px;
+	margin:20px;
+}
+h1.no_results
+{
+	font-family: 'roboto light','Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	width:80%;
+}
+
+h2 {
+	font-family: 'roboto light','Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	font-size: 80%;
+	color: white;
+	text-decoration: none;
+}
+
+p,a {
+	font-family: 'roboto light','Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	/*font-style: normal;
+	font-variant: normal;*/
+	font-weight: 400;
+	line-height: 20px;
+}

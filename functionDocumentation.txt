@@ -1,0 +1,144 @@
+Help on module newQueryAuxiliary:
+
+NAME
+    newQueryAuxiliary
+
+FILE
+    ./Backend/newQueryAuxiliary.py
+
+FUNCTIONS
+    df_idf_postings_creator(tokens, num_docs, config, table_name)
+        Adds df, idf & postings columns to matrix table in MySQL DB
+        
+        Args:
+                tokens: List of stemmed tokens without stop words.
+                num_docs: Total number of documents.
+                config: Dictionary json used to connect to MySQL database.
+                table_name: Table name in which df, idf & postings need to be inserted.
+    
+    docnames(csv_path, config, CMS_course_URL, table_name)
+        Creates the table that stores course information
+        
+        Args:
+                csv_path: Path of the .csv file containing metadata of the documents
+                config: Dictionary json used to connect to MySQL database.
+                CMS_course_URL: URL of the generic CMS course view page
+                table_name: Name of the table that needs to be created.
+    
+    file_to_list(doc_path)
+        Returns '
+        ' separated lines as a list from given file
+    
+    file_tokenizer(doc_path)
+        Returns a token list from a .txt file.
+        
+        Args:
+                doc_path: The complete path to the plain text file from which to extract
+                        the tokens.
+        
+        Returns:
+                A list of stemmed tokens in the order they occur in input file.
+                Duplicates are not removed. Hyphens are same as spaces. Tokens without 
+                any alphabet in them are omitted.
+    
+    matrix_creator(tokens, list_list, config, table_name)
+        Creates a frequency matrix in MySQL & fills it.
+        
+        Args:
+                tokens: List of stemmed tokens without stop words.
+                list_list: List of lists of tokens from all documents.
+                config: Dictionary json used to connect to MySQL database.
+                table_name: Table name that needs to be created.
+        Returns:
+                Nothing
+    
+    postings_query_maker(table_name, query_tokens, query_length)
+        Makes the postings retrieving query
+        
+        Assumes that the postings are stored in a MySQL database in the column
+                named 'postings'
+        Args:
+                table_name: The table name inside which the postings reside
+                query_tokens: The token list of the query
+                query_length: Length of the list query_tokens
+        Returns:
+                query: The MySQL query string to execute to get postings
+                t: The arguments tuple in the query
+    
+    query_tokenizer(query_string, stemmer)
+        Tokenizes given string and returns the list of tokens.
+        
+        Splits by spaces and '-' character and then stems using a given stemmer.
+        Args:
+                query_string: The query string to be tokenized
+                stemmer: The stemmer to stem with. It must have a .stem method that
+                takes a string and stems it.
+        Returns: A list of obtained query tokens
+    
+    raw_token_finder(dir, pre, num_docs, log_path)
+        Returns list of all tokens and list of lists of tokens in each document.
+        
+        Tokenizes all documents with names pre+str(1)+'.txt' to 
+                pre+str(num_docs)+'.txt', combines all the tokens and populates the 
+                argument tokens and returns the list of lists of tokens of all docs.
+        Args:
+                dir: The directory in which the documents exist.
+                pre: The prefix with which all document names start. All document names
+                        are of the form pre# where # is the number of the document.
+                num_docs: The total number of documents.
+                log_path: Path to where tokens must be written
+        Returns: Final token list and list of lists of tokens from all documents.
+    
+    relevance_query_maker(table_name, doc_name, query_tokens, query_length)
+        Makes the MySQL query that retrieves the relevance of doc_name
+        
+        Args:
+                table_name: The table name inside which the tf-idf values reside.
+                doc_name: The column name for which relevance is desired.
+                query_tokens: List of tokens in the query
+                query_length: Length of the list query_tokens
+        Returns:
+                query: MySQL query that retrieves document relevance from database.
+                t: The arguments tuple in the query
+    
+    remove_stop_words(tokens, list_list, stop_words)
+        Removes any stop words from tokens & list_list & returns them
+        
+        Args:
+                tokens: List of stemmed tokens without stop words.
+                list_list: List of lists of tokens from all documents.
+                stop_words: List of all stopwords.
+    
+    source_stop_words(path)
+        Returns set of words from file at input path
+        
+        Args:
+                path: Path of the stopwords file. The file must contain all stopwords
+                separated by newline characters.
+    
+    stop_word_generator(tokens, list_list, threshold)
+        Gives a set of stop words from a list of lists of tokenized documents.
+        
+        Args:
+                tokens: A lexicographically sorted list of all tokens
+                list_list: A list of lists of tokens from each document.
+                threshold: It is a fraction between 0 and 1. Words that appear in 
+                        atleast this fraction of documents are considered as stop words.
+        Returns:
+                A set of stopwords to be removed from given list of lists.
+    
+    vector_creator(tokens, num_docs, config, table_name_1, table_name_2)
+        Creates the document vectors (according to vector space model) table.
+        
+        Args:
+                tokens: List of stemmed tokens without stop words.
+                num_docs: Total number of documents.
+                config: Dictionary json used to connect to MySQL database.
+                table_name_1: Table from which tf and idf values are to be obtained.
+                table_name_2: Table name that needs to be created.
+
+DATA
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+    print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0)...
+
+
