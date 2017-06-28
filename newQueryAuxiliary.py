@@ -7,7 +7,7 @@ import mysql.connector
 from nltk import word_tokenize
 from nltk.stem.porter import PorterStemmer
 import time
-
+# -*- coding: ascii -*-
 
 def file_to_list(doc_path):
 	"""Returns '\n' separated lines as a list from given file"""
@@ -170,14 +170,14 @@ def df_idf_postings_creator(tokens, num_docs, config, table_name):
 	c = dbConnector.cursor()
 	no_handouts = num_docs
 
-	query = "ALTER TABLE  " + table_name + " ADD COLUMN docfreq INT NOT NULL DEFAULT '-1'"
-	c.execute(query)
+	# query = "ALTER TABLE  " + table_name + " ADD COLUMN docfreq INT NOT NULL DEFAULT '-1'"
+	# c.execute(query)
 
-	query = "ALTER TABLE  " + table_name + " ADD COLUMN invdocfreq FLOAT NOT NULL DEFAULT '-1'"
-	c.execute(query)
+	# query = "ALTER TABLE  " + table_name + " ADD COLUMN invdocfreq FLOAT NOT NULL DEFAULT '-1'"
+	# c.execute(query)
 
-	query = "ALTER TABLE  " + table_name + " ADD COLUMN postings VARCHAR(%s) NOT NULL DEFAULT ','"
-	c.execute( query, ((5 * no_handouts + 2), ))
+	# query = "ALTER TABLE  " + table_name + " ADD COLUMN postings VARCHAR(%s) NOT NULL DEFAULT ','"
+	# c.execute( query, ((5 * no_handouts + 2), ))
 
 	
 	for w in tokens:
@@ -205,7 +205,7 @@ def df_idf_postings_creator(tokens, num_docs, config, table_name):
 			inv_doc_freq = 0
 
 		query = "UPDATE " + table_name + " set docfreq = %s, invdocfreq = %s, postings = %s where tokens = %s"
-		c.execute(query, (doc_freq, inv_doc_freq, postings, w))
+		c.execute(query, (doc_freq, inv_doc_freq, postings, str(w)))
 
 		
 	
@@ -225,12 +225,12 @@ def vector_creator(tokens, num_docs, config, table_name_1, table_name_2):
 	dbConnector = mysql.connector.connect(**config)
 	c = dbConnector.cursor()
 
-	query = "CREATE TABLE " + table_name_2 + " ( `tokens` varchar(24) NOT NULL, PRIMARY KEY (tokens))"
-	c.execute(query)
+	# query = "CREATE TABLE " + table_name_2 + " ( `tokens` varchar(24) NOT NULL, PRIMARY KEY (tokens))"
+	# c.execute(query)
 
 	for w in tokens:
 		query = "INSERT INTO " + table_name_2 + " VALUES(%s)"
-		c.execute(query, (w, ))
+		c.execute(query, (str(w), ))
 
 	for i in range(num_docs):
 		time_begin = time.time()

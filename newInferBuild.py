@@ -7,6 +7,7 @@ from newQueryAuxiliary import source_stop_words
 from newQueryAuxiliary import vector_creator
 from newQueryAuxiliary import df_idf_postings_creator
 from newQueryAuxiliary import file_to_list
+from newQueryAuxiliary import docnames
 import numpy as np
 
 
@@ -16,9 +17,9 @@ import numpy as np
 # Config file used to connect to the MySQL database
 config = {
 	'user': 'root',
-	'password': 'your_db_password',
+	'password': 'yourmom',
 	'host': '127.0.0.1',
-	'database': 'your_db_name',
+	'database': 'infer',
 	'raise_on_warnings': True,
 	'use_pure': False,
 }
@@ -79,7 +80,7 @@ vector_creator(tokens, no_of_docs, config, table_name_1, table_name_2)
 time_06 = time.time()
 print("Doc Vectors created in " + str(time_06 - time_05))
 
-docnames(csv_path, config, CMS_course_URL, table_name_3)
+docnames(csv_file, config, CMS_course_URL, table_name_3)
 time_07 = time.time()
 print(".csv file uploaded to the database in" + str(time_07 - time_06))
 
