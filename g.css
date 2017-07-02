@@ -1,0 +1,76 @@
+
+body{
+    background-color: white;
+}
+
+input[type=text] 
+{
+	position : absolute;
+	border: 2px solid #aaaaaa;
+	padding-left : 6px;
+	margin :0px;
+	top : 20%;
+	left : 25%;
+	width : 50%;
+	height : 4%;
+	line-height: 100%;
+	font-size: 120%;
+	font-family: 'roboto light', 'helevetica', 'arial', sans-serif;
+}
+
+input[type=text]:focus
+{
+    border: 1px solid #4d90fe;
+    outline: none;
+}
+
+input[type="submit"] 
+{
+	position: absolute;
+    display: block;
+	left: 45%;
+    top:27%;
+    height: 36px;
+    line-height: 27px;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+        border-top-color: rgb(242, 242, 242);
+	    border-top-style: solid;
+	    border-top-width: 1px;
+	    border-right-color: rgb(242, 242, 242);
+	    border-right-style: solid;
+	    border-right-width: 1px;
+	    border-bottom-color: rgb(242, 242, 242);
+	    border-bottom-style: solid;
+	    border-bottom-width: 1px;
+	    border-left-color: rgb(242, 242, 242);
+	    border-left-style: solid;
+	    border-left-width: 1px;
+    border-radius: 2px;
+    color: #757575;
+    cursor: default;
+    padding: 2px 0px 2px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 11px 4px;
+    min-width: 9%;
+    padding: 0 16px;
+    text-align: center;
+    font-family: 'roboto light','Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+input[type="submit"]:focus 
+{
+    border: 1px solid #4d90fe;
+    outline: none;
+}
+
+input[type=submit]:hover 
+{
+  	background-color: #f8f8f8;
+    background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+    background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);*/
+    color: #222;
+}

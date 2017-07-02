@@ -19,7 +19,7 @@
 <?php
 
 $user_input = $_POST['search'];
-
+$ip = 'localhost';
 
 //$user_input = readline("Query: ");
 
@@ -27,9 +27,9 @@ if(strlen($user_input)){
 		
 	include 'stemmer.php';
 
-	$conn = mysqli_connect('127.0.0.1', 'root', 'yourmom.h','handouts');
+	$conn = mysqli_connect('127.0.0.1', 'root', 'yourmom','infer');
 	if (!$conn) {
-	    die('Something went wrong while connecting to MSSQL');
+	    die('Something went wrong while connecting to MySQL');
 	}
 
 
@@ -115,7 +115,7 @@ if(strlen($user_input)){
 				while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
 				{
 					printf ("<div class='card'>");
-					printf("<a class = 'result' href='http://cms.bits-hyderabad.ac.in/moodle/course/view.php?id=%s' > <p class ='course_id'>%s</p> <p class='course_name'>%s</p> </a>\n <a class='direct_doc' href='http://localhost/IR/Handouts/%s'>Open</a>", $row[3], $row[1], $row[2],$key);
+					printf("<a class = 'result' href='http://id.bits-hyderabad.ac.in/moodle/course/view.php?id=%s' > <p class ='course_id'>%s</p> <p class='course_name'>%s</p> </a>\n <a class='direct_doc' href='http://%s/IR/Handouts/%s'>Open</a>",$row[3], $row[1], $row[2],$ip,$key);
 					printf("</div>");
 				}		
 			}
@@ -146,7 +146,7 @@ if(strlen($user_input)){
 				while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
 				{
 					printf ("<div class='card'>");
-					printf("<a class = 'result' href='http://cms.bits-hyderabad.ac.in/moodle/course/view.php?id=%s' > <p class ='course_id'>%s</p> <p class='course_name'>%s</p> </a>\n <a class='direct_doc' href='http://localhost/IR/Handouts/%s'>Open</a>", $row[3], $row[1], $row[2],$key);
+					printf("<a class = 'result' href='http://id.bits-hyderabad.ac.in/moodle/course/view.php?id=%s' > <p class ='course_id'>%s</p> <p class='course_name'>%s</p> </a>\n <a class='direct_doc' href='http://%s/IR/Handouts/%s'>Open</a>", $row[3], $row[1], $row[2],$ip, $key);
 					printf("</div>");
 				}
 			}
@@ -174,7 +174,7 @@ else{
 
 		    exit();
 		}
-	Redirect('http://localhost/IR/infer.html', false);
+	Redirect('http://'+$ip+'/IR/infer.html', false);
 }
 
 ?>
