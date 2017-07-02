@@ -170,14 +170,14 @@ def df_idf_postings_creator(tokens, num_docs, config, table_name):
 	c = dbConnector.cursor()
 	no_handouts = num_docs
 
-	# query = "ALTER TABLE  " + table_name + " ADD COLUMN docfreq INT NOT NULL DEFAULT '-1'"
-	# c.execute(query)
+	query = "ALTER TABLE  " + table_name + " ADD COLUMN docfreq INT NOT NULL DEFAULT '-1'"
+	c.execute(query)
 
-	# query = "ALTER TABLE  " + table_name + " ADD COLUMN invdocfreq FLOAT NOT NULL DEFAULT '-1'"
-	# c.execute(query)
+	query = "ALTER TABLE  " + table_name + " ADD COLUMN invdocfreq FLOAT NOT NULL DEFAULT '-1'"
+	c.execute(query)
 
-	# query = "ALTER TABLE  " + table_name + " ADD COLUMN postings VARCHAR(%s) NOT NULL DEFAULT ','"
-	# c.execute( query, ((5 * no_handouts + 2), ))
+	query = "ALTER TABLE  " + table_name + " ADD COLUMN postings VARCHAR(%s) NOT NULL DEFAULT ','"
+	c.execute( query, ((5 * no_handouts + 2), ))
 
 	
 	for w in tokens:
@@ -225,8 +225,8 @@ def vector_creator(tokens, num_docs, config, table_name_1, table_name_2):
 	dbConnector = mysql.connector.connect(**config)
 	c = dbConnector.cursor()
 
-	# query = "CREATE TABLE " + table_name_2 + " ( `tokens` varchar(24) NOT NULL, PRIMARY KEY (tokens))"
-	# c.execute(query)
+	query = "CREATE TABLE " + table_name_2 + " ( `tokens` varchar(24) NOT NULL, PRIMARY KEY (tokens))"
+	c.execute(query)
 
 	for w in tokens:
 		query = "INSERT INTO " + table_name_2 + " VALUES(%s)"
